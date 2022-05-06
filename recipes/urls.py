@@ -1,4 +1,4 @@
-"""projeto URL Configuration
+"""project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -17,7 +17,11 @@ from django.urls import path
 
 from . import views
 
+app_name = 'recipes'
+
 urlpatterns = [
-    path('', views.home),
-    path('recipes/<int:id>/', views.recipe, name='recipes'),
+    path('', views.home, name="home"),
+    path('recipes/<int:id>/', views.recipe, name='recipe_detail'),
+    path('recipes/category/<int:category_id>/',
+         views.recipes_by_category, name='recipes_by_category'),
 ]
