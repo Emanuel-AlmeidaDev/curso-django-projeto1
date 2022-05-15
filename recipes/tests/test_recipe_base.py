@@ -5,9 +5,9 @@ from recipes.models import Category, Recipe, User
 
 class RecipeTestBase(TestCase):
 
-    def make_category(self):
+    def make_category(self, name="Category"):
         return Category.objects.create(
-            name='Category',
+            name=name,
         )
 
     def make_author(self,

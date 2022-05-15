@@ -25,7 +25,8 @@ class Recipe(models.Model):
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     updated_at = models.DateTimeField('Criado em', auto_now=True)
     is_published = models.BooleanField('Foi publicado', default=False)
-    cover = models.ImageField('Imagem', upload_to='recipes/covers/%Y/%m/%d/')
+    cover = models.ImageField(
+        'Imagem', upload_to='recipes/covers/%Y/%m/%d/', blank=True, default='')
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(
